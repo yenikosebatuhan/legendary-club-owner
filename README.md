@@ -123,6 +123,8 @@ Every image is rendered through [`src/components/SafeImage.jsx`](src/components/
 
 ## 🧪 Playwright E2E tests (bonus)
 
+A feature-level suite (46 tests) runs across **Desktop Chrome** and **mobile Safari (iPhone 13)**, verifying real behaviour rather than just markup.
+
 First-time setup installs the browser binaries:
 
 ```bash
@@ -136,15 +138,21 @@ npm run test:e2e        # headless
 npm run test:e2e:ui     # interactive UI mode
 ```
 
-The test in [`tests/onboarding.spec.js`](tests/onboarding.spec.js):
+### Run against the live deployed site
 
-1. Opens the landing page
-2. Enters a club name
-3. Selects a city, manager style and club color
-4. Clicks through every onboarding step
-5. Verifies the final club result screen appears and contains the club name (plus the starting league, season objective, and the club appearing in the leaderboard)
+The exact same suite can point at any deployed URL — no local server is started:
 
-Stable selectors used: `club-name-input`, `city-option`, `style-option`, `color-option`, `next-step`, `club-result`.
+```bash
+PW_BASE_URL=https://yenikosebatuhan.github.io/legendary-club-owner/ npm run test:e2e
+```
+
+### What it covers
+
+- **[`tests/landing.spec.js`](tests/landing.spec.js)** — page loads; hero headline + real-rewards value prop + trust line; all four trust badges; CTA hrefs; the brand logo and all four "How it works" images actually decode (`naturalWidth > 0`); "Why it's different" and credibility content; anchor navigation scrolls to sections; desktop nav (desktop only) and the hamburger menu (mobile only).
+- **[`tests/build-your-club.spec.js`](tests/build-your-club.spec.js)** — the interactive element end to end: `Next` is gated on each step's validity; the **live Club Preview** updates in real time (name → crest initials, city, style, colour → crest `data-color`); `Back` preserves selections; the full flow issues a complete Club License (name, city, style, colours, Amateur League, opening fixture, season objective, £2.5M budget, 72% board confidence); `Edit Choices` and `Start a different club` behave correctly; Turkish characters are accepted in the club name.
+- **[`tests/leaderboard.spec.js`](tests/leaderboard.spec.js)** — reward framing/heading, five base rows + reward-zone divider + prompt; after onboarding the created club is inserted at **#6**, highlighted as "Your Club" with the chosen management style and "Promotion hunt"; resetting removes it.
+
+Stable selectors: `club-name-input`, `city-option`, `style-option`, `color-option`, `next-step`, `club-result`, `club-preview`, `club-name-display`, `club-crest`, `leaderboard-row`, `user-leaderboard-row`, `reward-zone-divider`, `leaderboard-placeholder`.
 
 ---
 

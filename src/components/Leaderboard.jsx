@@ -53,7 +53,7 @@ function RankBadge({ rank, isYou }) {
 function LeaderRow({ r }) {
   return (
     <li
-      data-testid={r.isYou ? 'user-leaderboard-row' : undefined}
+      data-testid={r.isYou ? 'user-leaderboard-row' : 'leaderboard-row'}
       className={`grid grid-cols-[2.25rem_1fr_auto] items-center gap-3 rounded-xl px-3 py-3 transition-colors sm:grid-cols-[3rem_1fr_1fr_5rem_8rem] sm:px-4 ${
         r.isYou
           ? 'border border-neon/40 bg-neon/[0.08] shadow-neon'
@@ -145,7 +145,7 @@ export default function Leaderboard({ club }) {
             ))}
 
             {/* Reward zone divider after rank 5 */}
-            <li className="flex items-center gap-3 px-2 py-1.5" aria-hidden="true">
+            <li data-testid="reward-zone-divider" className="flex items-center gap-3 px-2 py-1.5">
               <span className="h-px flex-1 bg-gradient-to-r from-transparent to-amber-400/40" />
               <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-300">
                 Reward Zone · Top 5 earn rewards
@@ -156,7 +156,10 @@ export default function Leaderboard({ club }) {
             {userRow ? (
               <LeaderRow r={userRow} />
             ) : (
-              <li className="rounded-xl border border-dashed border-white/10 px-4 py-4 text-center text-sm text-slate-500">
+              <li
+                data-testid="leaderboard-placeholder"
+                className="rounded-xl border border-dashed border-white/10 px-4 py-4 text-center text-sm text-slate-500"
+              >
                 Build your club above to drop into the board at #6 — then climb into the reward zone.
               </li>
             )}

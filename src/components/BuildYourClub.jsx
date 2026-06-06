@@ -175,7 +175,7 @@ export default function BuildYourClub({ onClubCreated }) {
                 <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neon">
                   <Shield className="h-3.5 w-3.5" /> Club Preview
                 </p>
-                <ClubLicenseCard club={club} variant="preview" />
+                <ClubLicenseCard club={club} variant="preview" testid="club-preview" />
               </div>
             </div>
           </div>
@@ -342,7 +342,7 @@ function ColorGrid({ selected, onSelect }) {
  * onboarding (partial data + placeholders); `variant="result"` is the full
  * approved screen with objective, budget and a confidence meter.
  */
-function ClubLicenseCard({ club, variant = 'preview' }) {
+function ClubLicenseCard({ club, variant = 'preview', testid }) {
   const isResult = variant === 'result'
   const swatch = club.color
   const displayName = club.name || 'Your Club'
@@ -352,7 +352,10 @@ function ClubLicenseCard({ club, variant = 'preview' }) {
     : { background: 'linear-gradient(135deg, #3ef58b, #0a0f17)' }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-neon/20 bg-pitch-950/60 shadow-neon">
+    <div
+      data-testid={testid}
+      className="relative overflow-hidden rounded-2xl border border-neon/20 bg-pitch-950/60 shadow-neon"
+    >
       {/* Subtle pitch texture background; text stays HTML on top */}
       <SafeImage
         src="/assets/club-license-bg.png"
@@ -375,6 +378,8 @@ function ClubLicenseCard({ club, variant = 'preview' }) {
         }}
       >
         <span
+          data-testid="club-crest"
+          data-color={swatch?.id || ''}
           className="grid h-16 w-16 shrink-0 place-items-center rounded-xl font-display text-2xl font-bold text-pitch-950 shadow-neon ring-2 ring-white/30"
           style={crestStyle}
           aria-label={`${displayName} crest`}
@@ -383,6 +388,7 @@ function ClubLicenseCard({ club, variant = 'preview' }) {
         </span>
         <div className="min-w-0">
           <h3
+            data-testid="club-name-display"
             className={`truncate font-display text-xl font-bold ${club.name ? 'text-white' : 'text-slate-500'}`}
           >
             {displayName}
