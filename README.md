@@ -34,6 +34,7 @@ Built as a job-application case study with **React + Vite + Tailwind CSS** and *
 ├── postcss.config.js
 ├── playwright.config.js
 ├── PROCESS_NOTE.md
+├── AI_PROMPTS.md               # which AI image is used where + prompts
 ├── README.md
 ├── public/
 │   ├── favicon.svg
@@ -53,6 +54,8 @@ Built as a job-application case study with **React + Vite + Tailwind CSS** and *
 │   ├── main.jsx
 │   ├── App.jsx                 # holds the created-club state (lifted)
 │   ├── index.css               # Tailwind layers + design system utilities
+│   ├── lib/
+│   │   └── asset.js            # resolves public asset paths against BASE_URL
 │   └── components/
 │       ├── Logo.jsx            # LCO crest (image + CSS fallback) + brand lockup
 │       ├── SafeImage.jsx       # <img> with graceful fallback on load error
@@ -65,8 +68,12 @@ Built as a job-application case study with **React + Vite + Tailwind CSS** and *
 │       ├── Leaderboard.jsx     # highlights your club after onboarding
 │       ├── FinalCTA.jsx
 │       └── Footer.jsx
-└── tests/
-    └── onboarding.spec.js      # Playwright E2E
+└── tests/                      # Playwright E2E (see tests/README.md)
+    ├── README.md
+    ├── helpers.js              # shared flow driver + option data
+    ├── landing.spec.js         # page content, images, CTAs, navigation
+    ├── build-your-club.spec.js # the interactive element, end to end
+    └── leaderboard.spec.js     # leaderboard integration after onboarding
 ```
 
 ---
