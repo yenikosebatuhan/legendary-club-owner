@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { asset } from '../lib/asset.js'
 
 /**
  * Brand lockup: the LCO crest (AI-generated logo image with a CSS fallback)
@@ -16,7 +17,7 @@ export default function Logo({ compact = false, className = '' }) {
         </span>
       ) : (
         <img
-          src="/assets/logo-lco.png"
+          src={asset('/assets/logo-lco.png')}
           alt="Legendary Club Owner crest"
           className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_rgba(62,245,139,0.35)]"
           onError={() => setImgFailed(true)}
