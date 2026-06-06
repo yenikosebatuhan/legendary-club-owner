@@ -112,10 +112,11 @@ export default function Leaderboard({ club }) {
         <div className="mx-auto max-w-2xl text-center">
           <span className="section-eyebrow">Season leaderboard</span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
-            Every season is a race.
+            Climb the table. Reach the reward zone.
           </h2>
           <p className="mt-4 text-slate-400">
-            Your ranking reflects your decisions — not your wallet.
+            Season rewards are based on verified leaderboard performance — not betting, luck or
+            spending.
           </p>
         </div>
 

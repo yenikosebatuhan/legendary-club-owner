@@ -40,12 +40,13 @@ export default function Hero() {
           </div>
 
           <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-[3.5rem]">
-            Run the club. <span className="gradient-text">Beat real managers.</span> Earn your place.
+            Run the club. Beat real managers.{' '}
+            <span className="gradient-text">Earn real rewards.</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg lg:mx-0">
-            Build your club, set tactics and climb weekly leagues — where decisions matter more than
-            luck or spending.
+            Build your club, scout players and climb weekly leagues — where decisions matter more
+            than luck or spending.
           </p>
 
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
