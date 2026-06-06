@@ -3,6 +3,8 @@
 > **Not just football. Football ownership.**
 > Build a club from scratch. Outsmart real managers. Win real rewards.
 
+🔗 **Live demo:** https://yenikosebatuhan.github.io/legendary-club-owner/
+
 A polished, mobile-first marketing landing page for **Legendary Club Owner** — a mobile football club management simulation game by No Surrender Studio (known as **Efsane Başkan** in Turkey). The page introduces the game to an English-speaking audience and drives sign-ups through an interactive "Build Your Club" onboarding demo.
 
 Built as a job-application case study with **React + Vite + Tailwind CSS** and **lucide-react** icons.
@@ -93,13 +95,24 @@ npm run preview    # preview the production build locally
 
 ## ☁️ Deployment notes
 
-The build is a fully static site in `dist/`. `vite.config.js` sets `base: './'` so relative asset paths work on subpaths (e.g. GitHub Pages project sites).
+The build is a fully static site in `dist/`. For production, `vite.config.js` sets the base path to `/legendary-club-owner/` (the GitHub Pages project subpath); dev, preview and Playwright run on `/`. Public assets are referenced through `BASE_URL` (see [`src/lib/asset.js`](src/lib/asset.js)) so images resolve correctly on the subpath. Override the base for another host with the `VITE_BASE` env var.
+
+### GitHub Pages (current deploy)
+
+The site is live at **https://yenikosebatuhan.github.io/legendary-club-owner/**, served from the `gh-pages` branch. To redeploy after changes:
+
+```bash
+npm run deploy
+```
+
+This runs `predeploy` (build + write `dist/.nojekyll`) and publishes `dist/` to the `gh-pages` branch via the `gh-pages` package. Pages is configured to serve that branch at `/`.
+
+### Other hosts
 
 | Platform | Setup |
 | --- | --- |
-| **Vercel** | Import the repo → framework preset **Vite** → build `npm run build`, output `dist`. Zero config. |
-| **Netlify** | Build command `npm run build`, publish directory `dist`. |
-| **GitHub Pages** | Run `npm run build`, then publish `dist/` (e.g. via the `gh-pages` package or an Actions workflow). `base: './'` keeps assets resolving correctly. |
+| **Vercel** | Import the repo → framework preset **Vite**. Set env `VITE_BASE=/` (root domain), build `npm run build`, output `dist`. |
+| **Netlify** | Env `VITE_BASE=/`, build command `npm run build`, publish directory `dist`. |
 
 ### AI-generated visual assets
 The premium visuals live in `public/assets/` and were generated with **Google Gemini** (originals kept in `public/assets/raw/`). See [`AI_PROMPTS.md`](AI_PROMPTS.md) for which image is used where. All important text on the page is real HTML — the images are atmosphere only, never the source of truth (AI-baked text can be imperfect).
