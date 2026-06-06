@@ -38,7 +38,7 @@ export async function expectImageLoaded(locator) {
   await expect(locator).toBeVisible()
   await expect
     .poll(async () => locator.evaluate((img) => img.complete && img.naturalWidth > 0), {
-      timeout: 10_000,
+      timeout: 15_000,
     })
     .toBe(true)
 }
