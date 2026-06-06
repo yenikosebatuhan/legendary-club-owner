@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Football club president overlooking a glowing night stadium with floating dashboard cards">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1224"/>
+      <stop offset="0.55" stop-color="#080b16"/>
+      <stop offset="1" stop-color="#05070d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="18%" r="60%">
+      <stop offset="0" stop-color="#3ef58b" stop-opacity="0.45"/>
+      <stop offset="0.4" stop-color="#3ef58b" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#3ef58b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pitch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123322"/>
+      <stop offset="1" stop-color="#0a1f15"/>
+    </linearGradient>
+    <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1018"/>
+      <stop offset="1" stop-color="#05070d"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <!-- Sky / boardroom backdrop -->
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+
+  <!-- Stadium bowl -->
+  <g opacity="0.9">
+    <ellipse cx="400" cy="430" rx="360" ry="150" fill="#0c1626" stroke="#1c2c45" stroke-width="2"/>
+    <ellipse cx="400" cy="440" rx="250" ry="95" fill="url(#pitch)" stroke="#1f5a3a" stroke-width="2"/>
+    <!-- pitch center line & circle -->
+    <line x1="400" y1="350" x2="400" y2="535" stroke="#3ef58b" stroke-width="2" opacity="0.35"/>
+    <ellipse cx="400" cy="442" rx="46" ry="18" fill="none" stroke="#3ef58b" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- Floodlight beams -->
+  <g opacity="0.5" filter="url(#soft)">
+    <polygon points="120,120 60,160 360,440 380,420" fill="#3ef58b" opacity="0.12"/>
+    <polygon points="680,120 740,160 440,440 420,420" fill="#3ef58b" opacity="0.12"/>
+  </g>
+  <!-- Floodlight poles -->
+  <g fill="#3ef58b">
+    <circle cx="120" cy="120" r="7"/><circle cx="680" cy="120" r="7"/>
+    <circle cx="120" cy="120" r="16" opacity="0.25"/><circle cx="680" cy="120" r="16" opacity="0.25"/>
+  </g>
+
+  <!-- Crowd specks -->
+  <g fill="#26405f" opacity="0.7">
+    <circle cx="180" cy="380" r="3"/><circle cx="220" cy="365" r="3"/><circle cx="260" cy="355" r="3"/>
+    <circle cx="540" cy="355" r="3"/><circle cx="580" cy="365" r="3"/><circle cx="620" cy="380" r="3"/>
+    <circle cx="300" cy="345" r="3"/><circle cx="500" cy="345" r="3"/><circle cx="400" cy="340" r="3"/>
+  </g>
+
+  <!-- President silhouette in foreground -->
+  <g fill="url(#silhouette)">
+    <path d="M250 1000 v-260 q0-90 90-110 q20-50 60-50 q40 0 60 50 q90 20 90 110 v260 z"/>
+    <circle cx="400" cy="540" r="58"/>
+  </g>
+  <!-- Neon rim light on shoulders -->
+  <path d="M250 760 q0-80 90-110 q20-50 60-50 q40 0 60 50 q90 30 90 110"
+        fill="none" stroke="#3ef58b" stroke-width="3" opacity="0.5"/>
+
+  <!-- Floating dashboard cards -->
+  <g font-family="Inter, sans-serif">
+    <!-- Tactics card -->
+    <g transform="translate(70,560)">
+      <rect width="180" height="92" rx="16" fill="#0e1626" stroke="#3ef58b" stroke-opacity="0.4"/>
+      <rect x="14" y="14" width="40" height="40" rx="10" fill="#3ef58b" fill-opacity="0.18"/>
+      <text x="34" y="40" font-size="20" text-anchor="middle">🧠</text>
+      <text x="66" y="32" fill="#3ef58b" font-size="10" font-weight="700" letter-spacing="1">TACTICS</text>
+      <text x="66" y="50" fill="#ffffff" font-size="13" font-weight="600">4-3-3 Press</text>
+      <rect x="14" y="66" width="152" height="6" rx="3" fill="#1b2740"/>
+      <rect x="14" y="66" width="100" height="6" rx="3" fill="#3ef58b"/>
+    </g>
+
+    <!-- Player card -->
+    <g transform="translate(560,540)">
+      <rect width="170" height="100" rx="16" fill="#0e1626" stroke="#3ef58b" stroke-opacity="0.4"/>
+      <rect x="14" y="14" width="42" height="56" rx="8" fill="#3ef58b" fill-opacity="0.15" stroke="#3ef58b" stroke-opacity="0.3"/>
+      <text x="35" y="48" font-size="22" text-anchor="middle">🃏</text>
+      <text x="68" y="32" fill="#3ef58b" font-size="10" font-weight="700" letter-spacing="1">SCOUT</text>
+      <text x="68" y="52" fill="#ffffff" font-size="13" font-weight="600">OVR 89</text>
+      <text x="68" y="70" fill="#7d8aa0" font-size="11">Winger · 19y</text>
+    </g>
+
+    <!-- Leaderboard card -->
+    <g transform="translate(540,720)">
+      <rect width="190" height="96" rx="16" fill="#0e1626" stroke="#3ef58b" stroke-opacity="0.4"/>
+      <text x="16" y="30" fill="#3ef58b" font-size="10" font-weight="700" letter-spacing="1">LEAGUE RANK</text>
+      <text x="16" y="58" fill="#ffffff" font-size="22" font-weight="700">#2</text>
+      <text x="60" y="58" fill="#3ef58b" font-size="13" font-weight="600">▲ +4</text>
+      <rect x="16" y="70" width="158" height="6" rx="3" fill="#1b2740"/>
+      <rect x="16" y="70" width="130" height="6" rx="3" fill="#3ef58b"/>
+    </g>
+  </g>
+
+  <!-- Bottom fade for text overlay -->
+  <rect x="0" y="780" width="800" height="220" fill="#05070d" opacity="0.85"/>
+</svg>

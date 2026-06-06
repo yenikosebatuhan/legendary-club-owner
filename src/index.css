@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-pitch-950 text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 50% -10%, rgba(62, 245, 139, 0.12), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, rgba(31, 110, 245, 0.08), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  ::selection {
+    background: rgba(62, 245, 139, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card base */
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-strong {
+    @apply rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl shadow-glass;
+  }
+
+  /* Primary neon button */
+  .btn-neon {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-neon px-6 py-3 font-display
+      font-semibold text-pitch-950 transition-all duration-300 hover:bg-neon-400
+      hover:shadow-neon focus:outline-none focus-visible:ring-2 focus-visible:ring-neon
+      focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-950 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/15
+      bg-white/[0.03] px-6 py-3 font-display font-medium text-slate-100 transition-all duration-300
+      hover:border-neon/50 hover:bg-white/[0.06] focus:outline-none focus-visible:ring-2
+      focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-pitch-950
+      active:scale-[0.98];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04]
+      px-3 py-1.5 text-xs font-medium text-slate-300;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em]
+      text-neon;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-400 via-neon to-emerald-300 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
